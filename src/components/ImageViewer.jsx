@@ -1,10 +1,12 @@
 import React, { useState } from "react"
-import style from "./product-viewer.module.scss"
+import style from "./imageviewer.module.scss"
 
 //icons
 import { IoIosArrowBack } from "react-icons/io"
 import { IoIosArrowForward } from "react-icons/io"
 import { ImCancelCircle } from "react-icons/im"
+
+const FILE_PATH = `${import.meta.env.VITE_FILE_PATH}`
 
 const productData = {
   id: 1,
@@ -12,11 +14,11 @@ const productData = {
   price: 199.99,
   description:
     "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
-  images: ["/image001.jpg", "/image002.jpg", "/image003.jpg", "/image004.jpg"],
+  images: [`/${FILE_PATH}/image001.jpg`, `/${FILE_PATH}/image002.jpg`, `/${FILE_PATH}/image003.jpg`, `/${FILE_PATH}/image004.jpg`],
   rating: 3.5,
 }
 
-const ProductViewer = () => {
+const ImagesViewer = () => {
   const [data, setData] = useState({ image: productData.images[0], index: 0 })
   const [modal, setModal] = useState(false)
 
@@ -65,4 +67,4 @@ const ProductViewer = () => {
   )
 }
 
-export default ProductViewer
+export default ImagesViewer
